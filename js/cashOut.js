@@ -5,10 +5,10 @@ document.getElementById('cash-out-btn').addEventListener('click', function(event
     // Cash Out
     const cashOut = document.getElementById('cash-out-amount').value;
     // Get Pin Number
-    const pinNumber = document.getElementById('pin-number').value;
+    const pin = document.getElementById('pin').value;
 
 
-    if(pinNumber === '1234'){
+    if(pin === '1234'){
 
         const totalBalance = document.getElementById('total-balance').innerText;
 

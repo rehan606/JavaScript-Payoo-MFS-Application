@@ -18,7 +18,7 @@
         </style>
     </head>
     <body class=" text-black">
-        <div class="w-1/4 bg-[#F4F5F7] h-[48rem] mt-5 mx-auto ">
+        <div class="w-1/4 bg-[#F4F5F7]  mt-5 mx-auto pb-5">
             <div class="wrapper bg-white px-5 py-5 rounded-b-2xl">
                 <div class="home-container flex justify-between items-center ">
                     <div class="header flex items-center  ">
@@ -26,7 +26,7 @@
                             <img src="images/Group.png" alt="" class="w-full" >
                         </a>
                         <div class="amount">
-                            <h4 id="amount" class="text-md font-bold" >45000</h4>
+                            <h4 id="total-balance" class="text-md font-bold" >45000</h4>
                             <p class="text-sm" >Available Balance</p>
                         </div>
                     </div>
@@ -50,12 +50,12 @@
     
                 <div class="services mt-10 grid grid-cols-3 gap-2 ">
                     
-                    <a href="addMoney.html" class="item border-2 p-3 rounded-md flex flex-col justify-center cursor-pointer">
+                    <a id="add-money" href="#" class="item border-2 p-3 rounded-md flex flex-col justify-center cursor-pointer">
                         <img src="images/icon/wallet 1.png" alt="" class="w-6 mx-auto mb-2">
                         <p class="text-xs text-center " >Add Money</p>
                     </a>
     
-                    <a href="cashOut.html" class="item border-2 p-3 rounded-md flex flex-col justify-center cursor-pointer">
+                    <a id="cash-out" href="#" class="item border-2 p-3 rounded-md flex flex-col justify-center cursor-pointer">
                         <img src="images/icon/send 1.png" alt="" class="w-6 mx-auto mb-2">
                         <p class="text-xs text-center" >Cash Out</p>
                     </a>
@@ -84,7 +84,7 @@
 
             
             <!-- transaction History -->
-            <div class="history-Wrapper px-5">
+            <div id="transaction-history" class="history-Wrapper px-5 ">
                 <div class=" flex  space-x-32 items-center mt-5 ">
                     <h3 class="text-md font-bold">Letest Payment</h3>
                     <a href="#" class="text-xs text-center" >View All</a>
@@ -133,6 +133,44 @@
                 </div>
             </div>
 
+            <!-- Add Money Form  -->
+            <div id="add-money-form" class="add-money-wrapper mt-5 p-4  hidden">
+                <h1 class="text-lg font-bold">Add Money</h1>
+                <form id="loginForm" class="flex flex-col items-start my-auto mt-3 px-3 py-5 bg-white mx-auto rounded-b-2xl" >
+
+                    <label for="username" class="mb-2">Account Number</label>
+                    <input id="account-number" type="number"  name="phone-Number" placeholder="11 Digit Account Number" required class="w-72 py-2 px-5 bg-[#F4F5F7] rounded-3xl outline-none mb-5" >
+                    
+                    <label for="addAmount" class="mb-2">Ammount to Add</label>
+                    <input id="amount" type="number"  name="phone-Number" placeholder="Add Ammount" required class="w-72 py-2 px-5 bg-[#F4F5F7] rounded-3xl outline-none mb-5" >
+
+                    <label for="password" class="mb-2">4 Digit Pin</label>
+                    <input id="pin-number" type="password"  name="password" placeholder="Enter 4-Digit Pin" required class="w-72 py-2 px-5 bg-[#F4F5F7] rounded-3xl outline-none mb-5">
+
+                    <button id="add-money-btn" type="submit" class="w-72 bg-[#0874F2] text-white  py-3 px-5 rounded-3xl outline-none" >Add Money</button>
+                </form>
+            </div>
+
+
+            <!-- Cash Out Form  -->
+            <div id="cash-out-form" class="add-money-wrapper mt-5 p-4 hidden">
+                <h1 class="text-lg font-bold">Cash Out</h1>
+                <form id="cshOutForm" class="flex flex-col items-start my-auto mt-3 px-3 py-5 bg-white mx-auto rounded-b-2xl" >
+
+                    <label for="username" class="mb-2">Agent Number</label>
+                    <input type="number" id="username" name="phone-Number" placeholder="11 Digit Account Number" required class="w-72 py-2 px-5 bg-[#F4F5F7] rounded-3xl outline-none mb-5" >
+                    
+                    <label for="amount" class="mb-2">Ammount</label>
+                    <input id="cash-out-amount" type="number"  name="amount" placeholder="Add Ammount" required class="w-72 py-2 px-5 bg-[#F4F5F7] rounded-3xl outline-none mb-5" >
+
+                    <label for="password" class="mb-2">Pin Number</label>
+                    <input id="pin" type="password"  name="password" placeholder="Enter 4-Digit Pin" required class="w-72 py-2 px-5 bg-[#F4F5F7] rounded-3xl outline-none mb-5">
+
+                    <button id="cash-out-btn" type="submit" class="w-72 bg-[#0874F2] text-white  py-3 px-5 rounded-3xl outline-none" >Withdraw Money</button>
+                </form>
+            </div>
+
+
             <!-- Footer  -->
             <div class="footer text-center mt-3 ">
                 <p class="text-sm text-gray-400 ml-10 leading-3 inline-block" >All Reserved by-Payoo Designer <a href="https://github.com/rehan606" target="_blank" class="text-blue-600 ">Rehan</a></p>
@@ -141,5 +179,9 @@
 
         <!-- Script -->
         <script src="js/index.js"></script>
+        <!-- Add money -->
+        <script src="js/addMoney.js"></script>
+        <!-- Cash Out  -->
+        <script src="js/cashOut.js"></script>
     </body>
 </html>
