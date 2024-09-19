@@ -1,28 +1,38 @@
 
-document.getElementById('cash-out-btn').addEventListener('click', function(event){
+
+document.getElementById('btn-cash-out').addEventListener('click', function(event){
     event.preventDefault()
 
-    // Cash Out
-    const cashOut = document.getElementById('cash-out-amount').value;
-    // Get Pin Number
-    const pin = document.getElementById('pin').value;
 
+    const cashOut = getFieldInputValueById('input-cash-out')
+    const pinNumber = getFieldInputValueById('input-cash-out-pin')
 
-    if(pin === '1234'){
+    //Form Validation
+    if(isNaN(cashOut)){
+        alert('Invalid Input')
+        return ;
+    }
 
-        const totalBalance = document.getElementById('total-balance').innerText;
+    if(pinNumber === 1111){
 
-        const cashOutMoney = parseFloat(cashOut);
-        const previewsBalance = parseFloat(totalBalance);
-       
+        const balance = textFieldById('account-balance');
 
-        const newBalance = previewsBalance - cashOutMoney;
-        console.log(newBalance)
+        if(cashOut > balance){
+            alert('You Do not have incefficient balance')
+            return;
+        }
+        const newBalance = balance - cashOut
 
-        // Update balance in total balance
-        document.getElementById('total-balance').innerText = newBalance;
-        
+        document.getElementById('account-balance').innerText = newBalance
 
+        const div = document.createElement('div')
+        // div.classList.add('text-blue-500 p-4')
+        div.innerHTML = `
+            <h4 class="text-lg font-bold">Cash Out</h4>
+            <p>${cashOut} Withdraw. New Balance ${newBalance}</p>
+        `
+
+        document.getElementById('transaction-container').appendChild(div)
 
     } else {
         alert('Please Enter a Valid Pin Number')

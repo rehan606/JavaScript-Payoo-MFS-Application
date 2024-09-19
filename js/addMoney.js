@@ -1,44 +1,62 @@
 
 
+// document.getElementById('btn-add-money').addEventListener('click', function(event){
+//     event.preventDefault()
+
+//     const addMoney = document.getElementById('input-add-money').value;
+//     const addMoneyNumber = parseFloat(addMoney)
+//     const pinNumber = document.getElementById('input-pin-number').value ;
 
 
-// Add Money to Account
-document.getElementById('add-money-btn').addEventListener('click', function(event){
+//     //Pin Validatation
+//     if(pinNumber === '1111'){
+
+//         const balance = document.getElementById('account-balance').innerText;
+//         const balanceNumber = parseFloat(balance)
+
+//         const newBalance = balanceNumber + addMoneyNumber  ;
+
+//         document.getElementById('account-balance').innerText = newBalance
+
+//     } else {
+//         alert('Enter valid Pin Number')
+//     }
+//     console.log(addMoney, pinNumber)
+// })
+
+
+
+
+document.getElementById('btn-add-money').addEventListener('click', function(event){
     event.preventDefault()
 
-    
-    // Add Account Number
-    const accountNumber = document.getElementById('account-number').value ;
-    // Add Money
-    const addMoney = document.getElementById('amount').value;
-    // Get Pin Number
-    const pinNumber = document.getElementById('pin-number').value;
+    const addMoney = getFieldInputValueById('input-add-money')
+    const pinNumber = getFieldInputValueById('input-pin-number')
 
-    
-    
-    if(pinNumber === '1234'){
-
-        //Get The current Balance
-        const totalBalance = document.getElementById('total-balance').innerText;
-        
-        // Add Money input with the balance
-        
-
-        const addInputMoney = parseFloat(addMoney);
-        const previewsBalance = parseFloat(totalBalance);
-        
-        
-        // Add previews balance and add balance
-        const newBalance = previewsBalance + addInputMoney ;
-
-        // Update balance in total balance
-        document.getElementById('total-balance').innerText = newBalance;
-
-
-
-    } else{
-        alert('Please Valid Pin Number')
+    //Form Validation
+    if(isNaN(addMoney)){
+        alert('Invalid Input')
+        return ;
     }
 
+    // Pin Validation
+    if(pinNumber === 1111){
+        const balance = textFieldById('account-balance')
+        const newBalance = balance + addMoney;
+
+        document.getElementById('account-balance').innerText = newBalance
+
+        // Add to Transaction history
+        const p = document.createElement('p')
+        
+        p.innerText = `Added: ${addMoney} Tk. New Balance: ${newBalance} Tk.`
+
+        document.getElementById('transaction-container').appendChild(p)
+
+    } else {
+        alert('Please Enter Valid Pin Number')
+    }
+    
 })
+
 
