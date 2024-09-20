@@ -26,10 +26,11 @@ document.getElementById('btn-cash-out').addEventListener('click', function(event
         document.getElementById('account-balance').innerText = newBalance
 
         const div = document.createElement('div')
-        // div.classList.add('text-blue-500 p-4')
         div.innerHTML = `
+            
             <h4 class="text-lg font-bold">Cash Out</h4>
             <p>${cashOut} Withdraw. New Balance ${newBalance}</p>
+            <hr>
         `
 
         document.getElementById('transaction-container').appendChild(div)

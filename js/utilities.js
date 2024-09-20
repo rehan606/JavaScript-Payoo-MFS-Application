@@ -1,15 +1,6 @@
 // Common shared function here
 
 
-// function getFieldInputValueById(){
-
-//     const addMoney = document.getElementById('input-add-money').value;
-
-//     return addMoney
-
-// }
-
-
 // For Input field
 function getFieldInputValueById(id){
 
@@ -33,6 +24,7 @@ function showSectionById(id){
     //Hide all section
     document.getElementById('add-money-form').classList.add('hidden')
     document.getElementById('cash-out-form').classList.add('hidden')
+    document.getElementById('transfer-money-form').classList.add('hidden')
     document.getElementById('transaction-section').classList.add('hidden')
 
     //Show the section
